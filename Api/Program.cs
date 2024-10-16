@@ -2,6 +2,7 @@ using Api.Models;
 using CosmosDBAccessor;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StacyClouds.SwaAuth.Models;
 
 var environmentVariables = Environment.GetEnvironmentVariables();
 
@@ -21,6 +22,7 @@ var host = new HostBuilder()
                 )));
             services.AddSingleton<TodoHandler>();
         }
+        services.AddSingleton<IRoleProcessor, RoleProcessor>();
     })
     .Build();
 

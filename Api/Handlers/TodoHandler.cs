@@ -1,6 +1,7 @@
 ﻿using Api.Models;
 using CosmosDBAccessor;
 using Microsoft.Azure.Cosmos;
+using StacyClouds.SwaAuth.Models;
 
 namespace Api.Handlers;
 public class TodoHandler

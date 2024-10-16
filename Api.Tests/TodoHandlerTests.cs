@@ -3,8 +3,8 @@ using Api.Models;
 using CosmosDBAccessor;
 using Api.Handlers;
 using Models;
-using StaticWebAppAuthentication.Models;
 using FluentAssertions;
+using StacyClouds.SwaAuth.Models;
 
 namespace Api.Tests;
 

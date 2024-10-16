@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using StacyClouds.SwaAuth.Models;
 
 namespace Api
 {

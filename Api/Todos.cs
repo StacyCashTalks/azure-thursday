@@ -1,4 +1,7 @@
-﻿namespace Api;
+﻿using StacyClouds.SwaAuth.Api;
+using StacyClouds.SwaAuth.Models;
+
+namespace Api;
 
 internal class Todos
 {
@@ -18,8 +21,8 @@ internal class Todos
         HttpRequestData request)
     {
         ClientPrincipal clientPrincipal =
-            StaticWebAppApiAuthorization
-                .ParseHttpHeaderForClientPrinciple(request.Headers.ToList());
+            StaticWebAppApiAuthentication
+                .ParseHttpHeaderForClientPrinciple(request.Headers);
 
         List<Todo> todos = await _todoHandler.GetAllTodosForUser(clientPrincipal);
         var response = request.CreateResponse(HttpStatusCode.OK);
@@ -44,9 +47,10 @@ internal class Todos
             return badResponse;
         }
 
-        var clientPrincipal =
-            StaticWebAppApiAuthorization
-                .ParseHttpHeaderForClientPrinciple(request.Headers.ToList());
+        ClientPrincipal clientPrincipal =
+            StaticWebAppApiAuthentication
+                .ParseHttpHeaderForClientPrinciple(request.Headers);
+
 
         await _todoHandler.CreateTodo(todo, clientPrincipal);
 
@@ -70,9 +74,10 @@ internal class Todos
 
         }
 
-        var clientPrincipal =
-            StaticWebAppApiAuthorization
-                .ParseHttpHeaderForClientPrinciple(request.Headers.ToList());
+        ClientPrincipal clientPrincipal =
+            StaticWebAppApiAuthentication
+                .ParseHttpHeaderForClientPrinciple(request.Headers);
+
 
         try
         {

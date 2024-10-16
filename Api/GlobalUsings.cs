@@ -5,6 +5,4 @@ global using Microsoft.Extensions.Logging;
 
 global using Api.Handlers;
 global using Models;
-global using StaticWebAppAuthentication.Api;
-global using StaticWebAppAuthentication.Models;
 
